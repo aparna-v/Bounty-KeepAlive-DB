@@ -28,3 +28,9 @@ Task
 -  Create a simple UI where you can click to trigger the POST requests instead of using cURL
 -  Think how load-balancing and clustering can be useful in terms of scaling
 
+
+
+### Final Words
+When you are done, please just create a pull request on this repo. We would like you to come in and present your code to the whole team. 
+
+May the force be with you!
