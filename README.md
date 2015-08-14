@@ -5,8 +5,7 @@ Bounty-KeepAlive-DB
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-Follow the below guidelines to understand the tasks:
-
+**Follow the below guidelines to understand the tasks:**
 ### Server Setup
 -  Host a Node.js server
 -  Host 3 instances of PostgreSQL - DB1, DB2, DB3
