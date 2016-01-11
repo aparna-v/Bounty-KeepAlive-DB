@@ -1,0 +1,73 @@
+<html>
+<head>
+<script type="text/javascript">
+var dbServers = ["db1","db2","db3"];
+var host="52.33.206.1";
+var port = 8080;
+var states = ["start","stop"];
+
+
+function getRandomNo(min, max) {
+
+    return Math.floor(Math.random() * (max - min +1 ) + min);
+}
+
+
+function firePostRequests(num){
+ 
+	for(i=0;i<num;i++)
+	{
+		var index = getRandomNo(0,dbServers.length-1);
+		var dbServer = dbServers[index];
+		var action = states[getRandomNo(0,1)];
+		
+		var url  = "http://" + host + ":" + port + "/" + dbServer + "/" + action;
+		console.log(url);
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("POST", url, true);
+		xhttp.send();
+	}
+
+}
+
+
+function stopDB(){
+
+ var index = getRandomNo(0,dbServers.length-1);
+ var dbServer = dbServers[index];
+ var url  = "http://" + host + ":" + port + "/" + dbServer + "/stop";
+ console.log(url);
+ var xhttp = new XMLHttpRequest();
+ xhttp.open("POST", url, true);
+ xhttp.send();
+
+
+}
+
+
+function stopNodeServer(){
+
+
+ var url  = "http://" + host + ":" + port + "/killNode";
+ console.log(url);
+ var xhttp = new XMLHttpRequest();
+ xhttp.open("POST", url, true);
+ xhttp.send();
+
+
+}
+
+</script>
+
+</head>
+<body>
+<center><h1>Welcome to keep alive console</h1></center>
+Enter no. of POST requests: <input id="req" type="text"/>
+<button id="fire" onclick="firePostRequests(document.getElementById('req').value)">Fire</button>
+<br/><br/><br/>
+<button id="stop-db" onclick="stopDB()">Stop Random DB Server</button>
+<br/><br/><br/>
+<button id="stop-node" onclick="stopNodeServer()">Stop Node Server</button>
+</body>
+</html>
+
